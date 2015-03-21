@@ -19,7 +19,6 @@ def connect_before_function_and_disconnect_after(f):
         res = f(self, *args, **kwargs)
         self._close_connection()
         return res
-
     return wrapper
 
 
