@@ -1,0 +1,6 @@
+CREATE TABLE update_log (
+  id          INT       NOT NULL AUTO_INCREMENT,
+  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  price       INT       NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+);
