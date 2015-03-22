@@ -2,7 +2,7 @@ import MySQLdb
 import logging as log
 import os
 
-from dao.sql_queries import DELETE_DUPLICATED_ROWS, SELECT_DATA, INSERT_DATA
+from dao.sql_queries import SELECT_DATA, INSERT_DATA
 
 
 def connect_db():
@@ -36,11 +36,6 @@ class Dao(object):
         self._execute_insert(current_price)
 
     @connect_before_function_and_disconnect_after
-    def delete_duplicated_rows(self):
-        self._execute(DELETE_DUPLICATED_ROWS)
-        self._commit()
-
-    @connect_before_function_and_disconnect_after
     def _execute_get(self, limit):
         self._execute(SELECT_DATA.format(limit=limit))
         res = self._get_data_after_execute()
@@ -69,9 +64,3 @@ class Dao(object):
     def _connect(self):
         self._con = connect_db()
         self._cursor = self._con.cursor()
-
-
-if __name__ == '__main__':
-    # KostuJl
-    dao = Dao()
-    dao.delete_duplicated_rows()
