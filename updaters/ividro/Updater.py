@@ -9,7 +9,6 @@ log.basicConfig(level=log.DEBUG)
 
 
 class Updater(Thread):
-    _sleeping_time_minutes = 30 * 60
 
     def __init__(self, receiver, dao):
         super(Updater, self).__init__()
@@ -24,7 +23,6 @@ class Updater(Thread):
         log.debug("update")
         current_price = self._receiver.get_current_price()
         log.debug("current_price: " + current_price)
-        self._update_timer = self._sleeping_time_minutes
         self._dao.insert(current_price)
 
 
