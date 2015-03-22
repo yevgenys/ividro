@@ -1,4 +1,4 @@
-INSERT_DATA = """INSERT INTO update_log (price) VALUES ({VALUES}) ON DUPLICATE KEY UPDATE last_update = NOW();"""
+INSERT_DATA = """INSERT INTO update_log (price) VALUES ({values}) ON DUPLICATE KEY UPDATE last_update = NOW();"""
 SELECT_DATA = """
 SELECT last_update, price
 FROM (
